@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/*Navbar*/
+.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 8vw;
+    background-color: rgb(0, 0, 0);
+}
+.navbar-column-icon{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15vw;
+    justify-content: center;
+}
+.icon-navbar{
+    width: 4vw;
+    height: 4vw;
+
+}
+.icon-navbar:hover{
+    scale: 1.05;
+    transition: 0.5s;
+     cursor: pointer;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color:#111111;
+    width: 100vw;
+    height: 100vh;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.left {
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.right{
+    align-items: flex-end;
+    justify-content: right;
+}
+
+.inter {
+    font-family: 'Inter';
+}
+.white{
+    color: white;
+}
+.blue{
+    color:blue
+}
+.ab {
+    position: absolute;
+}

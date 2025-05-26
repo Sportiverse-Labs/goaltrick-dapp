@@ -1,0 +1,331 @@
+body,
+html {
+
+    font-size: clamp(10px, 1.2vw, 18px);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
+.section-total-perfil {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding-top: 0;
+
+}
+
+.coluna-perfil {
+    display: flex;
+    flex-direction: column;
+    width: 64vw;
+}
+
+.row-perfil {
+    display: flex;
+    flex-direction: row;
+    width: 64vw;
+    justify-content: center;
+}
+
+.container-perfil {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #111111;
+
+}
+
+.perfil-p {
+    width: 62vw;
+    height: 24vw;
+    background-color: black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1vw;
+    border: 0.5px solid rgba(255, 255, 255, 0.137);
+}
+
+.perfil-metade-p {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 62vw;
+    z-index: 1;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}
+
+.perfil-metade-banner-p {
+    display: flex;
+    flex-direction: row;
+    height: 12vw;
+    width: 62vw;
+    border-top-right-radius: 1vw;
+    border-top-left-radius: 1vw;
+    position: relative;
+    z-index: 1;
+}
+
+.banner-p {
+    width: 62vw;
+    border-top-right-radius: 1vw;
+    border-top-left-radius: 1vw;
+    object-fit: cover;
+}
+
+.div-imag-p {
+    display: flex;
+    height: 12vw;
+    width: 62vw;
+    z-index: 1;
+}
+
+.perfil-section-foto-p {
+    display: flex;
+    flex-direction: column;
+    width: 14vw;
+    height: 12vw;
+    z-index: 1;
+    justify-content: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.perfil-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 14vw;
+    height: 8vw;
+}
+
+.foto-perfil-p {
+    height: 8vw;
+    border-radius: 1vw;
+    z-index: 10;
+}
+.foto-perfil-p:hover{
+    scale: 1.02;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.perfil-line1-p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
+    padding-left: 0;
+}
+
+.perfil-coluna-p {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: auto;
+    padding-left: 0;
+    justify-content: center;
+
+}
+
+.perfil-coluna-assoc {
+    display: flex;
+    flex-direction: column;
+    width: 18vw;
+    justify-content: center;
+}
+
+.perfil-row-assoc {
+    display: flex;
+    flex-direction: row;
+    width: 18vw;
+    justify-content: center;
+}
+
+.perfil-cards {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 16vw;
+    gap: 2vh;
+
+}
+
+.card-assoc {
+    display: flex;
+    flex-direction: row;
+    width: 16vw;
+    background-color: rgba(120, 120, 120, 0.144);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.053) ;
+
+}
+.card-assoc:hover{
+    scale: 1.02;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.foto-time-assoc {
+    display: flex;
+    flex-direction: column;
+    width: 3.5vw;
+    justify-content: center;
+}
+
+.time-assoc {
+    width: 2.5vw;
+    height: 2.5vw;
+    padding: 0.5vw;
+}
+
+.nomeTime {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    justify-content: center;
+}
+
+.perfil-title-p {
+    margin: 0;
+    margin-top: 0.5vw;
+    font-family: 'Inter';
+    font-weight: bold;
+    color: white;
+    font-size: 2vw;
+}
+
+.perfil-text-p {
+    margin: 0;
+    font-family: 'Inter';
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.721);
+    font-size: 1.4vw;
+}
+
+.loc-p {
+    margin-top: 0.5vw;
+    color: rgba(204, 203, 203, 0.919);
+    font-weight: 300;
+    font-size: 1.2vw;
+}
+
+/*Novos Dados*/
+.row-dados {
+    display: flex;
+    flex-direction: row;
+    width: 64vw;
+    justify-content: center;
+}
+.dados{
+    display: flex;
+    flex-direction: column;
+    width: 62vw;
+    height: 18vw;
+    background-color: black;
+    margin-bottom: 1rem;
+    border-radius: 1vw;
+    border: 0.5px solid rgba(255, 255, 255, 0.137);
+    justify-content: center;
+}
+.grafico-row{
+    display: flex;
+    flex-direction: row;
+    width: 62vw;
+    justify-content: center;
+}
+.grafico{
+    width: 55vw;
+}
+
+@media (max-width: 768px) {
+    .section-total-perfil {
+        justify-content: center;
+    }
+
+    .perfil-p {
+        width: 95vw;
+        height: 50vw;
+    }
+
+    .coluna-perfil, .banner-p, .div-imag-p,  .row-perfil  { 
+        width: 95vw;
+    }
+
+    .perfil-metade-p {
+        width: 95vw;
+        height: 25vw;
+    }
+
+    .perfil-metade-banner-p {
+        width: 95vw;
+        height: 25vw;
+    }
+
+    .perfil-section-foto-p {
+        width: 27.5vw;
+        height: 25vw;
+    }
+
+    .perfil-row-center {
+        width: 22.5vw;
+        height: 12vw;
+    }
+     .foto-perfil-p {
+        height: 12vw;
+    }
+
+    .perfil-coluna-p {
+        width: 45vw;
+    }
+
+    .perfil-coluna-assoc{
+         width: 27.5vw;
+    }
+    .perfil-row-assoc{
+        width: 27.5vw;
+    }
+    .perfil-cards,
+    .card-assoc {
+        width: 24vw;
+    }
+    .card-assoc{
+        height: 4vw;
+    }
+    .card-assoc{
+        border-radius: 1vw;
+    }
+
+    .perfil-line1-p {
+        width: 95vw;
+    }
+
+    .nomeTime {
+        display: flex;
+        flex-direction: column;
+        width: 16vw;
+        justify-content: center;
+    }
+   
+
+    .perfil-title-p {
+        font-size: 3.6vw;
+    }
+
+    .perfil-text-p {
+        font-size: 2.1vw;
+    }
+    .row-dados,  .grafico-row{
+        width: 95vw;
+    }
+    .dados{
+        width: 95vw;
+        height: 30vw;
+    }
+    .grafico{
+        width: 85vw;
+    }
+}

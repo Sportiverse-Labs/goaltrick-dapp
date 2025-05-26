@@ -1,0 +1,554 @@
+body,
+html {
+    background-color: #111111;
+    font-size: clamp(10px, 1.2vw, 18px);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container-market {
+    background-color: #111111;
+    height: auto;
+}
+
+.section-total-market {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.section-perfil-market {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 27vw;
+    align-items: center;
+}
+
+.section-market {
+    display: flex;
+    flex-direction: column;
+    width: 46vw;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.section-tops-market {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 27vw;
+    align-items: center;
+}
+
+/* Trending Tops */
+.card-trending-market {
+    width: 22vw;
+    height: auto;
+    background-color: black;
+    border-radius: 1vw;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    box-shadow: 2px 2px rgba(126, 126, 126, 0.1);
+}
+
+.topico-market {
+    margin-left: 2rem;
+}
+
+.topico-market:hover {
+    scale: 1.01;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.trending-title-market {
+    font-family: 'Inter';
+    color: white;
+    margin-left: 2rem;
+    font-size: 1.6vw;
+}
+
+.trending-topics-market {
+    font-size: 1.2vw;
+    font-family: 'Inter';
+    color: white;
+    margin: 0;
+}
+
+.trending-text-market {
+    font-family: 'Inter';
+    color: rgb(93, 91, 91);
+    font-size: 1vw;
+    margin-top: 0.5px;
+}
+
+
+/* Perfil */
+
+.perfil-market {
+    width: 22vw;
+    height: 16vw;
+    background-color: black;
+    margin-top: 2rem;
+    border-radius: 1vw;
+    box-shadow: 2px 2px rgba(126, 126, 126, 0.1);
+}
+
+.perfil-market:hover {
+    scale: 1.02;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.perfil-metade-market {
+    display: flex;
+    flex-direction: row;
+    height: 8vw;
+    width: 22vw;
+    z-index: 1;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}
+
+.perfil-metade-banner-market {
+    display: flex;
+    flex-direction: row;
+    height: 8vw;
+    width: 22vw;
+    border-top-right-radius: 1vw;
+    border-top-left-radius: 1vw;
+    position: relative;
+    z-index: 1;
+}
+
+.banner-market {
+    width: 22vw;
+    border-top-right-radius: 1vw;
+    border-top-left-radius: 1vw;
+    object-fit: cover;
+}
+
+.div-imag-market {
+    display: flex;
+    height: 8vw;
+    width: 22vw;
+    background-color: purple;
+    z-index: 10;
+    position: absolute;
+}
+
+.perfil-section-foto-market {
+    display: flex;
+    flex-direction: column;
+    width: 22vw;
+    height: 8vw;
+    z-index: 10;
+    justify-content: center;
+    margin-top: 4vw;
+    position: absolute;
+}
+
+.foto-perfil-market {
+    margin: 2vw;
+    height: 4vw;
+    width: 4vw;
+    border-radius: 1vw;
+    z-index: 10;
+    position: absolute;
+    object-fit: cover;
+}
+
+.perfil-line1-market {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
+    margin-top: 2vw;
+}
+
+.perfil-coluna-market {
+    display: flex;
+    flex-direction: column;
+    width: 22vw;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.perfil-title-market {
+    margin: 0;
+    margin-top: 0.5vw;
+    margin-left: 2vw;
+    font-family: 'Inter';
+    font-weight: bold;
+    color: white;
+    font-size: 1.2vw;
+}
+
+.perfil-text-market {
+    margin: 0;
+    margin-left: 2vw;
+    font-family: 'Inter';
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.721);
+    font-size: 1vw;
+}
+
+.loc-market {
+    margin-top: 0.5vw;
+    color: rgba(164, 163, 163, 0.919);
+    font-weight: 300;
+    font-size: 0.9vw;
+}
+/*Card Market*/
+.column-card-market{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 46vw;
+    gap: 2vw;
+}
+.row-card-market{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 46vw;
+    height: auto;
+}
+.card-market{
+    display: flex;
+    flex-direction: row;
+    width: 45vw;
+    height: 16vw;
+    background-color: #000000;
+    border-radius: 1vw;
+    box-shadow: 2px 2px rgba(126, 126, 126, 0.1);
+}
+.card-market:hover{
+    scale: 1.03;
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+.player-column{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    height: 16vw;
+}
+.player-row{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    justify-content: center;
+}
+.column-imagem-jogador{
+    justify-content: center;
+    width: 15vw;
+}
+.column-texto-jogador{
+    width: 20vw;
+}
+.column-value-jogador{
+    width: 10vw;
+}
+
+.imagem-jogador{
+    width: 12vw;
+    height: 12vw;
+    border-radius: 1vw;
+    object-fit: cover;
+}
+.row-info-texto-jogador{
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+}
+.margin-text{
+    margin-top: 2vw;
+    margin-bottom: 0.5vw;
+}
+.nome-jogador{
+    font-size: 1.4vw;
+    font-family: 'Inter';
+    color: white;
+    margin: 0;
+}
+.function-jogador{
+    font-size: 1.2vw;
+    font-family: 'Inter';
+    color: white;
+    font-weight: 300;
+    margin: 0;
+}
+
+.transfer-row{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2vw;
+    height: 8vw;
+    width: 20vw;
+}
+.transfer-time-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 7vw;
+    height: 8vw;
+}
+.transfer-seta-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 6vw;
+    height: 8vw;
+}
+.transfer-seta-column .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 6vw;
+}
+.transfer-time-column .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 7vw;
+}
+.imagem-time{
+    width: 4vw;
+    height: 4vw;
+    padding: 0.5vw;
+    border-radius: 1vw;
+    background-color: rgba(255, 250, 250, 0.118);
+    box-shadow: 2px 2px rgba(126, 126, 126, 0.1);
+}
+.seta{
+    width: 4vw;
+    height: 1vw;
+}
+.bid-value{
+    font-size: 1.2vw;
+    font-family: 'Inter';
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.5vw;
+    background-color: blue;
+    border-radius: 1vw;
+}
+.bid-title{
+    font-size: 1.1vw;
+    font-family: 'Inter';
+    color: white;
+    margin: 0;
+    font-weight: 300;
+}
+/* MEDIA QUERIES */
+
+@media (orientation: portrait) {
+     .section-total-market {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-perfil-market {
+        flex-direction: row;
+        gap: 1rem;
+        width: 80vw;
+        height: auto;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        overflow-y: hidden;
+        order: 2;
+    }
+
+    .section-feed-market {
+        width: 90vw;
+        order: 1;
+    }
+
+    .section-tops-market {
+        width: 90vw;
+        order: 3;
+    }
+
+    .perfil-market {
+        width: 50vw;
+        height: 32vw;
+    }
+
+    .perfil-metade-market {
+        width: 50vw;
+        height: 14vw;
+    }
+
+    .perfil-metade-banner-market {
+        width: 50vw;
+        height: 18vw;
+    }
+
+    .perfil-section-foto-market {
+        margin-top: 12vw;
+        justify-content: center;
+    }
+
+    .foto-perfil-market {
+        margin: 1vw;
+        height: 8vw;
+        width: 8vw;
+        border-radius: 1vw;
+        z-index: 10;
+        margin-left: 4vw;
+    }
+
+    .perfil-coluna-market {
+        width: 40vw;
+        margin-left: 12vw;
+    }
+
+    .perfil-line1-market {
+        width: 50vw;
+        margin-top: 0;
+    }
+
+    .perfil-title-market {
+        margin-left: 2vw;
+        font-size: 3vw;
+    }
+
+    .perfil-text-market {
+        margin-left: 2vw;
+        font-size: 2vw;
+    }
+
+    .perfil-loc-market {
+        font-size: 1.4vw;
+    }
+
+    .banner-market {
+        width: 50vw;
+        height: 16vw;
+    }
+
+    .foto-market {
+        border-radius: 2vw;
+        height: 9vw;
+    }
+
+    .card-trending-market {
+        width: 77vw;
+        height: 45vw;
+        padding: 2vw;
+        margin-bottom: 2rem;
+        border-radius: 3vw;
+    }
+
+    .trending-title-market {
+        font-size: 4vw;
+    }
+
+    .trending-topics-market {
+        font-size: 3vw;
+    }
+
+    .trending-text-market {
+        font-size: 2vw;
+    }
+
+    .section-market {
+        width: 90vw;
+    }
+
+    .column-card-market,
+    .row-card-market {
+        width: 80vw;
+    }
+
+    .card-market {
+        width: 80vw;
+        height: 28vw;
+    }
+
+    .player-column {
+        width: 26vw;
+        height: 28vw;
+    }
+
+    .column-imagem-jogador {
+        width: 26vw;
+    }
+
+    .imagem-jogador {
+        width: 18vw;
+        height: 18vw;
+
+    }
+
+    .column-texto-jogador,
+    .row-info-texto-jogador {
+        width: 36vw;
+    }
+
+    .column-value-jogador {
+        width: 18vw;
+    }
+
+    .nome-jogador {
+        font-size: 2.5vw;
+    }
+
+    .function-jogador {
+        font-size: 2vw;
+    }
+
+    .margin-text {
+        margin-top: 4.5vw;
+    }
+
+    .transfer-row {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 2vw;
+        height: 16vw;
+        width: 26vw;
+    }
+
+    .transfer-time-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 9vw;
+        height: 12vw;
+    }
+
+    .transfer-seta-column {
+        width: 8vw;
+        height: 12vw;
+    }
+
+    .transfer-seta-column .row {
+        width: 8vw;
+    }
+
+    .transfer-time-column .row {
+        width: 9vw;
+    }
+    .imagem-time {
+        width: 8vw;
+        height: 8vw;
+    }
+    .bid-title{
+        font-size: 2vw;
+    }
+    .bid-value{
+        font-size: 2vw;
+    }
+
+}
+@media (max-width: 450px) {}
+
+@media (max-width: 410px) {}

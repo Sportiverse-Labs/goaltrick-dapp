@@ -1,0 +1,175 @@
+
+
+.imagem {
+    width: 65vw;
+    height: 100%;
+    min-height: 46vw;
+    background-image: url('../../imgs/login/background.png');
+    background-size: cover;
+}
+
+.login {
+    width: 35vw;
+    height: 100vh;
+    min-height: 46vw;
+    background-color: #111111;
+}
+
+.container-log {
+    width: 25vw;
+    height: 35vw;
+    background-color: rgb(30, 29, 29);
+    border-radius: 0.5vw;
+    border: 2px solid rgba(100, 98, 98, 0.632);
+}
+.container-titulo{
+    display: flex;
+    flex-direction: column;
+    height: 10vw;
+    width: 23vw;
+    margin-left: 2vw;
+    justify-content: center;
+}
+
+
+.container-input{
+    width: 25vw;
+    height: 7.5vw;
+}
+.container-input2{
+    width: 25vw;
+    height: 15vw;
+    gap: 2vh;
+}
+
+.input{
+    width: 20vw;
+    height: 3vw;
+    padding-left: 1vw;
+    border-radius: 0.5vw;
+    border: 1px solid rgba(100, 98, 98, 0.632);
+    background-color: rgb(30, 29, 29);
+    color: rgba(169, 168, 168, 0.632);
+}
+.input-text{
+    margin: 0;
+    font-weight: 300;
+    margin-bottom: 0.5vw;
+    color: rgba(169, 168, 168, 0.632);
+    font-size: 1vw;
+}
+.e{
+    text-decoration: underline;
+}
+.e:hover{
+    color: white;
+    scale: 1.02;
+    transition: 0.4s;
+}
+.input:focus {
+    border: 0px solid rgba(169, 168, 168, 0.632);
+  }
+
+.botaoEntrar{
+    width: 21vw;
+    height: 3.5vw;
+    border-radius: 0.5vw;
+    background-color: #0000FF;
+    border: 0;
+    color: white;
+}
+.botaoEntrar:hover{
+    scale: 1.03;
+    transition: 0.4s;
+    background-color: #ffffff;
+    color: black;
+}
+
+.botaoSport{
+    width: 21vw;
+    height: 3.5vw;
+    border-radius: 0.5vw;
+    background-color: black;
+    border: 0;
+    color: white;
+}
+.botaoSport:hover{
+    scale: 1.03;
+    transition: 0.4s;
+    background-color: #000000;
+}
+.iconeBotao{
+    height: 70%;
+    color: #111111;
+}
+
+@media (orientation: portrait){
+    html {
+        margin: 0;
+    }
+
+    body {
+        width: 100vw;
+        height: 100%;
+       
+    }
+    .imagem {
+        width: 0;
+        height: 0;
+    }
+    .container-titulo{
+        margin: 0;
+        width: 90vw;
+        height: auto;
+    }
+    .titulo-login {
+        margin-top: 6vw;
+        margin-bottom: 6vw;
+        font-size: 8vw;
+        text-align: center;
+        width: 90vw;
+    }
+
+    .login {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+
+    }
+
+    .container-log {
+        width: 90vw;
+        height: 100vw;
+        border-radius: 2vw;
+    }
+
+    .container-input {
+        width: 86vw;
+        height: 20vw;
+        height: auto;
+        padding: 2vw;
+    }
+
+    .container-input2 {
+        display: flex;
+        width: 78vw;
+        height: auto;
+        padding: 6vw;
+    }
+
+    .input{
+        width:65vw;
+        height: 8vw;
+        border-radius: 2vw;
+    }
+
+    .botaoEntrar,
+    .botaoSport {
+        width: 65vw;
+        height: 10vw;
+        border-radius: 2vw;
+    }
+    .input-text{
+        font-size: 3.5vw;
+    }
+}
