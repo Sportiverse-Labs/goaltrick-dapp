@@ -69,19 +69,10 @@ const Login = () => {
 
         console.log("Hash:", hashHex);
 
-        const body = {
-            creator: accounts[0].address,
-            hashAccount: hashHex
-        };
-
         try {
-            const response = await fetch("http://[2804:214:82c1:2271:1f79:bca5:305d:a479]:1317/sportiverse.sportiverse.Msg/CreateAccount", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(body)
-            });
+            const response = await fetch("http://localhost:5000/api/list-wallets", {
+            method: "GET"
+        });
 
             const result = await response.json();
             console.log("API:", result);
