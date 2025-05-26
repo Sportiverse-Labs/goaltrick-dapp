@@ -99,6 +99,7 @@ const Register = () => {
                             <img src={icone} className='iconeBotao'></img>
                         </button>
                         <Link to="/feed"><button className='botaoEntrar inter'>Create</button></Link>
+                        <Link to="/"><h4 className='input-text e inter'>Already have an Account?</h4></Link>
                     </div>
                 </motion.div>
             </div>

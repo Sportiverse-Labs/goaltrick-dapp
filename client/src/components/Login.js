@@ -55,44 +55,38 @@ const Login = () => {
     }, []);
 
     const handleLogin = async () => {
+        console.log("Email:", email);
+        console.log("Password:", password);
+
+        const data = `${email}:${password}`; 
+
+        const encoder = new TextEncoder();
+        const dataBuffer = encoder.encode(data);
+
+        const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+        console.log("Hash:", hashHex);
+
+        const body = {
+            creator: accounts[0].address,
+            hashAccount: hashHex
+        };
+
         try {
-    await window.keplr.enable("secret-4");
-    const offlineSigner = window.getOfflineSigner("secret-4");
-    const accounts = await offlineSigner.getAccounts();
+            const response = await fetch("http://[2804:214:82c1:2271:1f79:bca5:305d:a479]:1317/sportiverse.sportiverse.Msg/CreateAccount", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+            });
 
-    const secretjs = await SecretNetworkClient.create({
-      grpcWebUrl: "https://grpc-secret.scrtlabs.com", 
-      chainId: "secret-4",
-      wallet: offlineSigner,
-      walletAddress: accounts[0].address,
-    });
-
-    const tx = await secretjs.tx.compute.executeContract(
-      {
-        sender: accounts[0].address,
-        contract_address: "<CONTRACT_ADDRESS>", 
-        code_hash: "<CODE_HASH>",          
-        msg: {
-          login: {
-            email: email,
-            password: password,
-          },
-        },
-      },
-      {
-        gasLimit: 200_000,
-      }
-    );
-
-    console.log("tx:", tx);
-
-        if (tx.code === 0) {
-        navigate('/feed');
-        } else {
-        alert("Failed to login using Secret Network.");
-        }
-        } catch (err) {
-            console.error("Error to send data to Secret Network", err);
+            const result = await response.json();
+            console.log("API:", result);
+        } catch (error) {
+            console.error("Error sending to API:", error);
         }
     };
 
