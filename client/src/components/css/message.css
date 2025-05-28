@@ -56,7 +56,7 @@
     background-color: black;
     margin-top: 2rem;
     border-radius: 1vw;
-    box-shadow: 2px 2px rgba(126, 126, 126, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.116);
 }
 
 .perfil-message:hover {
@@ -187,7 +187,7 @@
     height: 6vw;
     border-top-left-radius: 1vw;
     border-top-right-radius: 1vw;
-     background-color: #000000;
+    background-color: #000000;
 }
 
 .div-message-image {
@@ -211,7 +211,7 @@
     height: 6vw;
     width: 15vw;
     justify-content: center;
-   
+
 }
 
 .div-user-perfil .title {
@@ -273,11 +273,12 @@
     display: flex;
     flex-direction: column;
     max-height: 25vw;
+    height: 25vw;
     overflow-y: auto;
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    
+
 }
 
 .scroll-area::-webkit-scrollbar {
@@ -320,21 +321,22 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    
+    border: 1px solid rgba(255, 255, 255, 0.116);
+
 }
 
 .message-me .card-message {
     background-color: blue;
     color: white;
     margin-right: 0.5vw;
-    border-bottom-right-radius: 0.2vw ;
+    border-bottom-right-radius: 0.2vw;
 }
 
 .message-re .card-message {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     margin-left: 0.5vw;
-    border-bottom-left-radius: 0.2vw 
+    border-bottom-left-radius: 0.2vw
 }
 
 .card-message .text {
@@ -351,7 +353,7 @@
     border-radius: 0.8vw;
 }
 
-.section-input{
+.section-input {
     display: flex;
     flex-direction: row;
     height: 6vw;
@@ -361,13 +363,15 @@
     border-bottom-left-radius: 1vw;
     border-bottom-right-radius: 1vw;
 }
-.column-input{
+
+.column-input {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
 }
-.row-input{
+
+.row-input {
     display: flex;
     flex-direction: row;
     width: 40vw;
@@ -376,7 +380,8 @@
     border: 1px solid rgba(255, 255, 255, 0.126);
     background-color: black;
 }
-.div-input{
+
+.div-input {
     display: flex;
     flex-direction: column;
     width: 34vw;
@@ -384,6 +389,7 @@
     justify-content: center;
     margin-left: 1vw;
 }
+
 .input-message {
     width: 24vw;
     height: 3vw;
@@ -401,7 +407,7 @@
     cursor: pointer;
 }
 
-.message-column-button{
+.message-column-button {
     display: flex;
     flex-direction: column;
     height: 4vw;
@@ -409,19 +415,21 @@
     margin-right: 1vw;
     justify-content: center;
 }
-.message-column-button .button{
+
+.message-column-button .button {
     width: 2vw;
     height: 2vw;
 }
-.b-blue{
+
+.b-blue {
     background-color: blue;
     border-radius: 0.2vw;
-   padding: 0.2vw;
+    padding: 0.2vw;
 }
 
 /*Card Contract*/
 
-.card-contract{
+.card-contract {
     display: flex;
     flex-direction: column;
     width: 24vw;
@@ -432,19 +440,22 @@
     box-shadow: 2px 2px rgba(68, 67, 67, 0.138);
     border: 2px solid rgba(255, 255, 255, 0.125);
 }
-.contract-div{ 
+
+.contract-div {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.contract-title{
+
+.contract-title {
     font-size: 2vw;
     font-family: 'Inter';
     font-weight: bold;
     color: white;
     margin-top: 2vw;
 }
-.contract-text{
+
+.contract-text {
     font-size: 1vw;
     font-family: 'Inter';
     font-weight: 300;
@@ -453,7 +464,8 @@
     text-align: justify;
     margin: 0;
 }
-.contract-button{
+
+.contract-button {
     margin: 2vw;
     width: 16vw;
     height: 3vw;
@@ -466,26 +478,475 @@
     border: none;
     margin-bottom: 1vw;
 }
-.btn-blue{
+
+.btn-blue {
     background-color: blue;
     color: white;
 }
-.none-margin{
+
+.none-margin {
     margin-top: 0vw;
     margin-bottom: 2vw;
 }
 
-.contract-button:hover{
-     scale: 1.03;
+.contract-button:hover {
+    scale: 1.03;
     transition: 0.5s;
     cursor: pointer;
     background-color: rgb(11, 11, 70);
     color: white;
 }
-.btn-blue:hover{
-     scale: 1.03;
+
+.btn-blue:hover {
+    scale: 1.03;
     transition: 0.5s;
     cursor: pointer;
     background-color: rgb(41, 40, 40);
     color: rgb(255, 255, 255);
+}
+
+
+@media (orientation: portrait) {
+   
+    .section-total-message {
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .section-perfil-message {
+        width: 95vw;
+        order: 3;
+    }
+
+    .column-message {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        width: 95vw;
+        gap: 2vw;
+    }
+
+    .section-message {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        order: 1;
+    }
+
+    .section-contract-message {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        width: 100vw;
+        justify-content: center;
+        order: 2;
+    }
+
+    .column-message {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: 100vw;
+        gap: 2vw;
+    }
+
+    .row-message {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100vw;
+        height: auto;
+    }
+
+    /* Perfil */
+    .perfil-message {
+        width: 50vw;
+        height: 32vw;
+        border-radius: 3vw;
+    }
+
+    .perfil-metade-message {
+        width: 50vw;
+        height: 14vw;
+    }
+
+    .perfil-metade-banner-message {
+        width: 50vw;
+        height: 18vw;
+        border-top-left-radius: 3vw;
+        border-top-right-radius: 3vw;
+    }
+
+    .banner-message {
+        width: 50vw;
+        height: 16vw;
+        border-top-left-radius: 3vw;
+        border-top-right-radius: 3vw;
+    }
+
+    .perfil-section-foto-message {
+        margin-top: 12vw;
+        justify-content: center;
+    }
+
+    .foto-perfil-message {
+        margin: 1vw;
+        height: 8vw;
+        width: 8vw;
+        border-radius: 1vw;
+        z-index: 10;
+        margin-left: 4vw;
+    }
+
+    .perfil-coluna-message {
+        width: 40vw;
+        margin-left: 12vw;
+    }
+
+    .perfil-line1-message {
+        width: 50vw;
+        margin-top: 0;
+    }
+
+    .perfil-title-message {
+        margin-left: 2vw;
+        font-size: 3vw;
+    }
+
+    .perfil-text-message {
+        margin-left: 2vw;
+        font-size: 2vw;
+    }
+
+    .perfil-loc-message {
+        font-size: 1.4vw;
+    }
+
+    .loc-message {
+        margin-top: 0.5vw;
+        color: rgba(164, 163, 163, 0.919);
+        font-weight: 300;
+        font-size: 0.9vw;
+    }
+
+    /* Message */
+
+    .message {
+        display: flex;
+        flex-direction: column;
+        background-color: #111111;
+        width: 95vw;
+        height: auto;
+        border-radius: 3vw;
+        border: 2px solid black;
+        box-shadow: 2px 2px rgba(68, 67, 67, 0.138);
+        border: 1px solid rgba(255, 255, 255, 0.110);
+
+    }
+
+    .message-perfil {
+        display: flex;
+        flex-direction: row;
+        width: 95vw;
+        height: 17vw;
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+        background-color: #000000;
+    }
+
+    .div-message-image {
+        display: flex;
+        flex-direction: column;
+        height: 17vw;
+        width: 14vw;
+        justify-content: center;
+        margin-left: 2vw;
+    }
+
+    .imageUser {
+        height: 13vw;
+        width: 13vw;
+        border-radius: 2vw;
+    }
+
+    .div-user-perfil {
+        margin-left: 1vw;
+        display: flex;
+        flex-direction: column;
+        height: 17vw;
+        width: 42vw;
+        justify-content: center;
+
+    }
+
+    .div-user-perfil .title {
+        font-family: 'Inter';
+        font-size: 4vw;
+        font-weight: bold;
+        margin: 0;
+        color: white;
+    }
+
+    .div-user-perfil .code {
+        font-family: 'Inter';
+        font-size: 3vw;
+        font-weight: 300;
+        margin: 0;
+        color: white;
+    }
+
+    .div-user-buttons {
+        display: flex;
+        flex-direction: row;
+        height: 17vw;
+        width: 30vw;
+        justify-content: flex-end;
+        gap: 6vw;
+
+    }
+
+    .div-user-buttons .column {
+        display: flex;
+        flex-direction: column;
+        height: 17vw;
+        width: 4vw;
+        justify-content: center;
+    }
+
+    .div-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 6vw;
+        width: 6vw;
+    }
+
+    .button {
+        color: white;
+        height: 6vw;
+        width: 6vw;
+    }
+
+
+    .messages {
+        display: flex;
+        flex-direction: column;
+        max-height: 80vh;
+        min-height: 20vh;
+        height: 70vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+    }
+
+    .scroll-area::-webkit-scrollbar {
+        display: none;
+    }
+
+    .message-me,
+    .message-re {
+        display: flex;
+        flex-direction: row;
+        width: 92vw;
+        padding: 2vw;
+        padding-bottom: 2vw;
+        height: auto;
+
+    }
+
+    .message-me {
+        flex-direction: row-reverse;
+    }
+
+    .message-re {
+        justify-content: flex-start;
+
+    }
+
+    .card-message {
+        max-width: 55vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        border-radius: 2vw;
+        padding-top: 1.6vw;
+        padding-bottom: 1.6vw;
+        padding-right: 2.4vw;
+        padding-left: 2.4vw;
+        background-color: brown;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        border: 1px solid rgba(255, 255, 255, 0.116);
+
+    }
+
+    .message-me .card-message {
+        background-color: blue;
+        color: white;
+        margin-right: 1vw;
+        border-bottom-right-radius: 0.2vw;
+    }
+
+    .message-re .card-message {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        margin-left: 1vw;
+        border-bottom-left-radius: 0.2vw
+    }
+
+    .card-message .text {
+        font-size: 4vw;
+        font-family: 'Inter';
+        font-weight: 600;
+        margin: 0;
+    }
+
+
+    .card-message-foto {
+        width: 8vw;
+        height: 8vw;
+        margin: 1vw;
+        border-radius: 200px;
+    }
+
+    .section-input {
+        display: flex;
+        flex-direction: row;
+        height: 17vw;
+        width: 95vw;
+        justify-content: center;
+        background-color: black;
+        border-bottom-left-radius: 1vw;
+        border-bottom-right-radius: 1vw;
+    }
+
+    .column-input {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .row-input {
+        display: flex;
+        flex-direction: row;
+        width: 80vw;
+        height: 13vw;
+        border-radius: 2vw;
+        border: 1px solid rgba(255, 255, 255, 0.126);
+        background-color: black;
+    }
+
+    .div-input {
+        display: flex;
+        flex-direction: column;
+        width: 68vw;
+        height: 13vw;
+        justify-content: center;
+        margin-left: 1vw;
+    }
+
+    .input-message {
+        width: 48vw;
+        height: 11vw;
+        padding-left: 2rem;
+        border-radius: 1vw;
+        border: 0px solid rgba(255, 250, 250, 0.632);
+        background-color: rgba(47, 46, 46, 0);
+        color: rgba(169, 168, 168, 0.632);
+        font-size: 3vw;
+    }
+
+
+    .message-column-button {
+        display: flex;
+        flex-direction: column;
+        height: 13vw;
+        width: 4vw;
+        margin-right: 4vw;
+        justify-content: center;
+    }
+
+    .message-column-button .button {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .b-blue {
+        background-color: blue;
+        border-radius: 0.2vw;
+        padding: 0.2vw;
+    }
+
+    /*Card Contract*/
+
+    .card-contract {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+        height: auto;
+        border-radius: 1vw;
+        margin-top: 2rem;
+        background-color: #000000;
+        box-shadow: 2px 2px rgba(68, 67, 67, 0.138);
+        border: 2px solid rgba(255, 255, 255, 0.125);
+    }
+
+    .contract-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .contract-title {
+        font-size: 6vw;
+        font-family: 'Inter';
+        font-weight: bold;
+        color: white;
+        margin-top: 6vw;
+    }
+
+    .contract-text {
+        font-size: 4vw;
+        font-family: 'Inter';
+        font-weight: 300;
+        color: white;
+        width: 85vw;
+        text-align: justify;
+        margin: 0;
+    }
+
+    .contract-button {
+        margin: 6vw;
+        width: 80vw;
+        height: 12vw;
+        border-radius: 2vw;
+        font-size: 4vw;
+        font-family: 'Inter';
+        font-weight: bold;
+        color: black;
+        background-color: white;
+        border: none;
+        margin-bottom: 1vw;
+    }
+
+    .btn-blue {
+        background-color: blue;
+        color: white;
+    }
+
+    .none-margin {
+        margin-top: 0vw;
+        margin-bottom: 7vw;
+    }
+
+
 }

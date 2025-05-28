@@ -221,7 +221,7 @@ html {
     display: flex;
     flex-direction: row;
     width: 45vw;
-    height: 16vw;
+    height: 12vw;
     background-color: #000000;
     border-radius: 1vw;
     box-shadow: 2px 2px rgba(126, 126, 126, 0.1);
@@ -236,7 +236,7 @@ html {
     display: flex;
     flex-direction: column;
     width: 15vw;
-    height: 16vw;
+    height: 12vw;
 }
 .player-row{
     display: flex;
@@ -256,8 +256,8 @@ html {
 }
 
 .imagem-jogador{
-    width: 12vw;
-    height: 12vw;
+    width: 9vw;
+    height: 9vw;
     border-radius: 1vw;
     object-fit: cover;
 }
@@ -288,22 +288,22 @@ html {
     display: flex;
     flex-direction: row;
     margin-bottom: 2vw;
-    height: 8vw;
-    width: 20vw;
+    height: 6vw;
+    width: 14vw;
 }
 .transfer-time-column{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 7vw;
-    height: 8vw;
+    width: 5vw;
+    height: 6vw;
 }
 .transfer-seta-column{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 6vw;
-    height: 8vw;
+    width: 4vw;
+    height: 6vw;
 }
 .transfer-seta-column .row{
     display: flex;
@@ -318,8 +318,8 @@ html {
     width: 7vw;
 }
 .imagem-time{
-    width: 4vw;
-    height: 4vw;
+    width: 3vw;
+    height: 3vw;
     padding: 0.5vw;
     border-radius: 1vw;
     background-color: rgba(255, 250, 250, 0.118);

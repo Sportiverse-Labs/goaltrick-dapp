@@ -86,7 +86,10 @@ const Market = () => {
                 <div className='section-market'>
                     <div className='column-card-market'>
                         {transfers.map((transfer) => (
-                        <div className='row-card-market'>
+                        <motion.div layout
+                                initial={{ opacity: 0, y: -100 }}   // Começa invisível e acima
+                                animate={{ opacity: 1, y: 0 }}     // Anima para visível e posição normal
+                                transition={{ duration: 1 }} className='row-card-market'>
                             <div className='card-market'>
                                 <div className='player-column column-imagem-jogador'>
                                     <div className='player-row'>
@@ -127,7 +130,7 @@ const Market = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                         ))};
                     </div>
                 </div>

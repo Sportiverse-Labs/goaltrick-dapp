@@ -29,78 +29,112 @@ const perfis = [
 const Perfil = () => {
 
     return (
-        <div className='container-perfil'>
+              <div className='container-perfil'>
             <div className='navbar'>
                 <div className='navbar-column-icon'>
-                    <Link to="/feed" style={{ textDecoration: 'none', color: 'inherit' }}><img src={icone} className='icon-navbar'/></Link>
+                    <Link to="/feed" style={{ textDecoration: 'none', color: 'inherit' }}><img src={icone} className='icon-navbar' /></Link>
                 </div>
             </div>
             <div className='section-total-perfil'>
-                <div className='coluna-perfil'>
-                    {perfis.map((perfil) => (
-                        <div className='row-perfil'>
-                            <motion.div
-                                initial={{ opacity: 0, y: -100 }}   // Começa invisível e acima
-                                animate={{ opacity: 1, y: 0 }}     // Anima para visível e posição normal
-                                transition={{ duration: 1 }} className='perfil-p'>
-                                <div className='perfil-metade-banner-p'>
-                                    <img className='banner-p' src={perfil.banner}></img>
+                <div className='row-center'>
+                    <div className='coluna-perfil'>
+                        {perfis.map((perfil) => (
+                            <div className='row-perfil'>
+                                <motion.div
+                                    initial={{ opacity: 0, y: -100 }}   // Começa invisível e acima
+                                    animate={{ opacity: 1, y: 0 }}     // Anima para visível e posição normal
+                                    transition={{ duration: 1 }} className='perfil-p'>
+                                    <div className='perfil-metade-banner-p'>
+                                        <img className='banner-p' src={perfil.banner}></img>
 
-                                </div>
-                                <div className='perfil-metade-p'>
-                                    <div className='perfil-section-foto-p'>
-                                        <div className='perfil-row-center'>
-                                            <img className='foto-perfil-p' src={perfil.foto}></img>
-                                        </div>
                                     </div>
-                                    <div className='perfil-line1-p'>
-                                        <div className='perfil-coluna-p'>
-                                            <h4 className='perfil-title-p'>{perfil.name}</h4>
-                                            <p className='perfil-text-p'>{perfil.bio}</p>
-                                            <p className='perfil-text-p loc-p'>{perfil.loc}</p>
+                                    <div className='perfil-metade-p'>
+                                        <div className='perfil-section-foto-p'>
+                                            <div className='perfil-row-center'>
+                                                <img className='foto-perfil-p' src={perfil.foto}></img>
+                                            </div>
                                         </div>
-                                        <div className='perfil-coluna-assoc'>
-                                            <div className='perfil-row-assoc'>
-                                                <div className='perfil-cards'>
-                                                    <div className='card-assoc'>
-                                                        <div className='foto-time-assoc'>
-                                                            <img src={perfil.time} className='time-assoc'></img>
+                                        <div className='perfil-line1-p'>
+                                            <div className='perfil-coluna-p'>
+                                                <h4 className='perfil-title-p'>{perfil.name}</h4>
+                                                <p className='perfil-text-p'>{perfil.bio}</p>
+                                                <p className='perfil-text-p loc-p'>{perfil.loc}</p>
+                                            </div>
+                                            <div className='perfil-coluna-assoc'>
+                                                <div className='perfil-row-assoc'>
+                                                    <div className='perfil-cards'>
+                                                        <div className='card-assoc'>
+                                                            <div className='foto-time-assoc'>
+                                                                <img src={perfil.time} className='time-assoc'></img>
+                                                            </div>
+                                                            <div className='nomeTime'>
+                                                                <p className='perfil-text-p'>{perfil.timeNome}</p>
+                                                            </div>
                                                         </div>
-                                                        <div className='nomeTime'>
-                                                            <p className='perfil-text-p'>{perfil.timeNome}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='card-assoc'>
-                                                        <div className='foto-time-assoc'>
-                                                            <img src={perfil.selec} className='time-assoc'></img>
-                                                        </div>
-                                                        <div className='nomeTime'>
-                                                            <p className='perfil-text-p'>{perfil.selecNome}</p>
+                                                        <div className='card-assoc'>
+                                                            <div className='foto-time-assoc'>
+                                                                <img src={perfil.selec} className='time-assoc'></img>
+                                                            </div>
+                                                            <div className='nomeTime'>
+                                                                <p className='perfil-text-p'>{perfil.selecNome}</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    ))}
-                    <div className='row-dados'>
-                        <div className='dados'>
-                            <div className='grafico-row'>
-                                <img src={grafico} className='grafico'></img>
+                                </motion.div>
                             </div>
-                            
+                        ))}
+                        <div className='row-dados'>
+                            <div className='dados'>
+                                <div className='grafico-row'>
+                                    <img src={grafico} className='grafico'></img>
+                                </div>
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
-
-                <div className='coluna-novodados'>
-                    <div className='row-novodados'>
-                        <div className='coluna-novodados'>
-
+                <div className='section-tops-p'>
+                    <div className='card-trending-p'>
+                        <h3 className='trending-title-p'>Trending Topics</h3>
+                        <Link to="/message" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <div className='topico'>
+                                <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                                <p className='trending-text-p'>2050 readers</p>
+                            </div>
+                        </Link>
+                        <div className='topico-p'>
+                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                            <p className='trending-text-p'>2050 readers</p>
+                        </div>
+                        <div className='topico-p'>
+                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                            <p className='trending-text-p'>2050 readers</p>
+                        </div>
+                        <div className='topico-p'>
+                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                            <p className='trending-text-p'>2050 readers</p>
+                        </div>
+                        <div className='topico-p'>
+                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                            <p className='trending-text-p'>2050 readers</p>
+                        </div>
+                        <div className='topico-p'>
+                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                            <p className='trending-text-p'>2050 readers</p>
+                        </div>
+                        <div className='topico-p'>
+                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                            <p className='trending-text-p'>2050 readers</p>
+                        </div>
+                        <div className='topico-p'>
+                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
+                            <p className='trending-text-p'>2050 readers</p>
                         </div>
                     </div>
                 </div>

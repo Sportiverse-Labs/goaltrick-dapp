@@ -12,7 +12,7 @@ html {
 .container-feed {
     background-color: #111111;
     height: auto;
-    
+    min-height: 46vw;
     
 
 }
@@ -22,6 +22,7 @@ html {
     display: flex;
     flex-direction: row;
     margin: 0;
+    min-height: 46vw;
     
 }
 
@@ -220,6 +221,7 @@ html {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    min-height: 46vw;
 }
 
 
@@ -409,7 +411,7 @@ html {
     display: flex;
     flex-direction: column;
     height: 4vw;
-    width: 3vw;
+    width: 2.5vw;
     justify-content: center;
     margin-right: 1vw;
 }
@@ -468,7 +470,7 @@ html {
     display: flex;
     flex-direction: row;
     height: 45vw;
-    width: 70vw;
+    width: auto;
     border-radius: 1vw;
     border: 1px solid rgba(255, 255, 255, 0.097);
     background-color: rgb(34, 34, 34);
@@ -771,7 +773,7 @@ html {
     color: #0000FF;
 }
 
-@media (orientation: portrait) {
+@media (orientation: portrait), (max-width: 768px) {
     .section-total {
         flex-direction: column;
         align-items: center;

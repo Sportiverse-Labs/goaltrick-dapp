@@ -75,7 +75,7 @@ const posts = [
         author: 'Carlos Lima',
         loc: 'Paris, França',
         content: 'Como funciona o useEffect?',
-        foto:'https://pm1.aminoapps.com/6757/b195be45a8386544d387dd8f235b5c93e8e8e02bv2_hq.jpg',
+        foto: 'https://pm1.aminoapps.com/6757/b195be45a8386544d387dd8f235b5c93e8e8e02bv2_hq.jpg',
         date: '06/05/2025',
         image: 'https://th.bing.com/th/id/OIP.F3o0929lAUfE5sy1SSQceQHaEK?rs=1&pid=ImgDetMain',
         perfil: '',
@@ -193,15 +193,19 @@ const Feed = () => {
     return (
         <div className='container-feed'>
             <AnimatePresence>
-                {imagemModal && iconModal && (
+                {authorModal && iconModal && (
                     <motion.div
                         i initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }} className="modal-imagem" >
                         <div className='post'>
-                            <div className='post-section-image'>
-                                <img className='post-image' src={imagemModal} alt="Tela cheia" />
-                            </div>
+                            {imagemModal ? (
+                                <div className='post-section-image'>
+                                    <img className='post-image' src={imagemModal} alt="Tela cheia" />
+                                </div>
+                            ) : (
+                                <div></div>
+                            )}
                             <div className='post-column'>
                                 <div className='post-topo'>
                                     <div className='post-topo-column-foto'>
@@ -311,9 +315,11 @@ const Feed = () => {
                 </div>
                 <div className='section-feed'>
                     <div className='ask'>
-                        <div className='div-image-ask'>
-                            <img src={foto} className='foto'></img>
-                        </div>
+                        <Link to="/perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <div className='div-image-ask'>
+                                <img src={foto} className='foto'></img>
+                            </div>
+                        </Link>
                         <div className='div-ask2'>
                             <div className='container-input-feed'>
                                 <input className='input-feed' type="text" id="nome" name="nome" placeholder='Write something...'></input>
@@ -361,7 +367,7 @@ const Feed = () => {
                                             <small className='card-date'>{post.date}</small>
                                         </div>
                                     </div>
-                                    
+
 
                                 </div>
                             </motion.div>
@@ -389,7 +395,6 @@ const Feed = () => {
                             <a><h4 className='trending-topics'>Tópico 1</h4></a>
                             <p className='trending-text'>2050 readers</p>
                         </div>
-
                     </div>
                 </div>
             </div>
