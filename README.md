@@ -1,19 +1,19 @@
 
-# 🌐 Sportiverse Frontend
+# 🌐 Goaltrick Dapp
 
 This repository contains the **fullstack application** for the Sportiverse platform, combining:
 
 -  **Frontend:** React.js  
 -  **Backend:** Golang API
 
-Sportiverse is the first blockchain infrastructure dedicated to sports-focused Web3 applications. This app serves as the official web gateway to explore the Sportiverse ecosystem, access documentation, showcase dApps like GoalTrick, and connect with the team.
+Sportiverse is the first blockchain infrastructure dedicated to sports-focused Web3 applications. Goaltrick serves as the showcase dApp of Sportiverse.
 
 ---
 
 ##  Project Structure
 
 ```
-sportiverse-frontend/
+goaltrick-dapp/
 ├── api/         # Golang API
 │   ├── go.mod
 │   ├── main.go
@@ -31,8 +31,8 @@ sportiverse-frontend/
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/sportiverse/sportiverse-frontend.git
-cd sportiverse-frontend
+git clone https://github.com/sportiverse/goaltrick-dapp.git
+cd goaltrick-dapp
 ```
 
 ### 2️⃣ Setup Frontend (React)
@@ -84,18 +84,8 @@ Backend API runs at: `http://localhost:5000`
 
 | Location   | Command         | Description              |
 |------------|-----------------|--------------------------|
-| `/frontend`| `npm run start` | Run React dev server     |
-| `/backend` | `npm run dev`   | Run Express server (nodemon) |
-
----
-
-##  Deployment
-
-For production, consider using:
-- **Docker Compose** to orchestrate frontend & backend
-- Hosting solutions like Vercel (frontend) + Render/Heroku (backend)
-
-> Deployment scripts coming soon!
+| `/`| `npm run dev` | Run React dev server     |
+| `/api` | `go run main.go`   | Run Go API |
 
 ---
 
@@ -114,16 +104,14 @@ We welcome contributions!
 
 ##  Team
 
-- [**Daniel Augusto**](https://github.com/odanielaugusto) — Business Analyst 
-- [**Pedro Jorge**](https://github.com/PedroJorgeSA) — UX/UI Designer
+- [**Daniel Augusto**](https://github.com/odanielaugusto) — Business Analyst
+- [**Pedro Jorge**](https://github.com/PedroJorgeSA) — UI/UX Designer
 - [**Victor Garcia**](https://github.com/CryptoVictor) — Blockchain Engineer
+- [**João Pedro**](https://github.com/joaoaraujo2006) — FullStack Developer
 
 ---
 
-## 📬 Contact
+##  Contact
 
-For inquiries or collaboration opportunities:  
-📧 [email@email.com](mailto:email@email.com)
-
-Check out [Sportiverse Network](https://www.sportiverse.network/)
+For questions, partnerships or contributions, reach us at: [sportiverselabs@gmail.com](mailto:sportiverselabs@gmail.com)
 
