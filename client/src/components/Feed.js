@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { color, AnimatePresence, motion } from 'framer-motion';
 import { FaHeart, FaRegHeart, FaRegComment } from 'react-icons/fa';
 import { FaCircleChevronRight } from "react-icons/fa6";
-import icone from '../imgs/icones.png'
-import banner from '../imgs/post/campnou.jpg'
-import foto from '../imgs/avatar/Frenkie.jpg';
-import postImage from '../imgs/post/fdj.jpg'
+import { useNavigate } from 'react-router-dom';
+import icone from '../imgs/icones.png';
 import './css/feed.css';
 import './css/index.css';
-import { VscWand } from 'react-icons/vsc';
 
 
 const perfis = [
@@ -20,140 +17,46 @@ const perfis = [
         loc: 'Barcelona, Spain',
         foto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqnuzMk0HKVhQosaxe55zciSEN3HCXF1tO-PfNCsP2b3rkjewQqdSPsyzbF7A8QMDmBc&usqp=CAU',
         banner: 'https://64.media.tumblr.com/3aee457fea15ff72783f67668003a393/tumblr_pvzyax5XQG1tljwzco2_1280.jpg'
-    },
-    {
-        id: 2,
-        name: 'Lionel Messi',
-        bio: 'Soccer | Argentina | Inter Miami',
-        loc: 'Miami, EUA',
-        foto: 'https://static.poder360.com.br/2021/08/messi-contrato-barcelona.jpg',
-        banner: 'https://pbs.twimg.com/media/E4q_IIoXIAQQtWh.jpg:large'
-    },
-    {
-        id: 2,
-        name: 'Lionel Messi',
-        bio: 'Soccer | Argentina | Inter Miami',
-        loc: 'Miami, EUA',
-        foto: 'https://static.poder360.com.br/2021/08/messi-contrato-barcelona.jpg',
-        banner: 'https://pbs.twimg.com/media/E4q_IIoXIAQQtWh.jpg:large'
-    },
-    {
-        id: 2,
-        name: 'Lionel Messi',
-        bio: 'Soccer | Argentina | Inter Miami',
-        loc: 'Miami, EUA',
-        foto: 'https://static.poder360.com.br/2021/08/messi-contrato-barcelona.jpg',
-        banner: 'https://pbs.twimg.com/media/E4q_IIoXIAQQtWh.jpg:large'
-    },
+    }
 ];
 
-const posts = [
-    {
-        id: 1,
-        author: 'Frenkie De Jong',
-        bio: perfis[0].bio,
-        loc: perfis[0].loc,
-        foto: perfis[0].foto,
-        content: 'Derrota mais amarga da minha carreira! Dei meu máximo, mas não foi dessa vez culés. Agradeço pelo apoio e temos outra final no próximo Domingo. Visca Barça sempre!',
-        date: '08/05/2025',
-        image: 'https://pbs.twimg.com/media/GqXi87xW8AAdCHj.jpg',
-        perfil: '',
-
-    },
-    {
-        id: 2,
-        author: 'Maria Souza',
-        loc: 'São Paulo, Brazil',
-        content: 'Aula de CSS foi incrível!',
-        foto: 'https://images.immediate.co.uk/production/volatile/sites/3/2023/08/2023.06.28-06.20-boundingintocomics-649c79f009cdf-Cropped-8d74232.png',
-        date: '07/05/2025',
-        image: '',
-        perfil: '',
-    },
-    {
-        id: 3,
-        author: 'Carlos Lima',
-        loc: 'Paris, França',
-        content: 'Como funciona o useEffect?',
-        foto: 'https://pm1.aminoapps.com/6757/b195be45a8386544d387dd8f235b5c93e8e8e02bv2_hq.jpg',
-        date: '06/05/2025',
-        image: 'https://th.bing.com/th/id/OIP.F3o0929lAUfE5sy1SSQceQHaEK?rs=1&pid=ImgDetMain',
-        perfil: '',
-    }
-]
-
-const comments = [
-    {
-        id: 1,
-        author: perfis[2].name,
-        text: 'Lenda do futebol!',
-        time: '1 week ago',
-        likes: 200,
-        foto: perfis[2].foto
-    },
-    {
-        id: 2,
-        author: perfis[1].name,
-        text: 'Fraco',
-        time: 'Today',
-        likes: 87,
-        foto: perfis[1].foto
-    },
-    {
-        id: 2,
-        author: perfis[1].name,
-        text: 'Fraco',
-        time: 'Today',
-        likes: 87,
-        foto: perfis[1].foto
-    },
-    {
-        id: 2,
-        author: perfis[1].name,
-        text: 'Fraco',
-        time: 'Today',
-        likes: 87,
-        foto: perfis[1].foto
-    },
-    {
-        id: 2,
-        author: perfis[1].name,
-        text: 'Fraco',
-        time: 'Today',
-        likes: 87,
-        foto: perfis[1].foto
-    },
-    {
-        id: 2,
-        author: perfis[1].name,
-        text: 'Fraco',
-        time: 'Today',
-        likes: 87,
-        foto: perfis[1].foto
-    },
-    {
-        id: 2,
-        author: perfis[1].name,
-        text: 'Fraco',
-        time: 'Today',
-        likes: 87,
-        foto: perfis[1].foto
-    },
-]
 const Feed = () => {
     const [imagemModal, setImagemModal] = useState(null);
     const [iconModal, setIconModal] = useState(null);
     const [authorModal, setAuthorModal] = useState(null);
     const [locModal, setLocModal] = useState(null);
     const [contentModal, setContentModal] = useState(null);
+    const navigate = useNavigate();
 
-    const abrirImagem = (src, icon, author, loc, content) => {
+    const abrirImagem = (src, icon, author, loc, content, postId) => {
         setImagemModal(src);
         setIconModal(icon);
         setAuthorModal(author);
         setLocModal(loc);
         setContentModal(content);
+    
+        fetch('http://localhost:5000/api/list-post-comments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ postId: postId.toString() })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const comments = data["Comment"].map((comment, index) => ({
+                id: index,
+                postId: parseInt(comment.postId),
+                author: "Messi",
+                content: comment.body,
+            }));
+            setComments(comments);
+        })
+        .catch(error => {
+            console.error("Error fetching comments:", error);
+        });
     };
+    
 
     const fecharImagem = () => {
         setImagemModal(null);
@@ -162,6 +65,176 @@ const Feed = () => {
         setLocModal(null);
     };
 
+      const [posts, setPosts] = useState([]);
+      const [comments, setComments] = useState([]);
+      const [comment, setComment] = useState('');
+
+      const handleSend = () => {
+        if (comment.trim()) {
+          createComment(comment);
+          setComment('');
+        }
+      };
+    
+      const handleKeyDown = (e) => {
+        if (e.key === 'Enter') handleSend();
+      };
+
+      useEffect(() => {
+
+            const isLoggedIn = localStorage.getItem('isLoggedIn')
+              if (isLoggedIn !== 'true') {
+                navigate("/");
+            }
+
+          fetch('http://localhost:5000/api/list-posts')
+              .then(response => response.json())
+              .then(data => {
+                  const postList = data["All posts"]["Post"].map((post, index) => ({
+                      id: index,
+                      author: perfis[0].name,
+                      loc: "Barcelona, Spain",
+                      content: post.title,
+                      foto: perfis[0].foto,
+                      date: new Date(post.timestamp).toLocaleDateString(),
+                      image: post.body,
+                      perfil: '',
+                  }));
+                  setPosts(postList);
+              })
+              .catch(error => {
+                  console.error("Error searching posts:", error);
+              });
+
+
+              fetch('http://localhost:5000/api/list-post-comments', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ postId: "0" })
+              })
+                .then(response => response.json())
+                .then(data => {
+                    const comments = data["Comment"].map((comment, index) => ({
+                    id: index,
+                    postId: parseInt(comment.postId),
+                    author: "Messi",
+                    content: comment.body,
+                    }));
+                    setComments(comments);
+                })
+                .catch(error => {
+                    console.error("Error fetching comments:", error);
+                });
+
+
+      }, []);
+
+      function createPost(title) {
+        fetch('http://localhost:5000/api/create-post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            accountName: "alice",
+            title: title
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Post created:', data);
+            window.location.reload(); 
+          })
+          .catch(error => {
+            console.error('Error creating post:', error);
+          });
+      };      
+
+      function createComment(body, postId) {
+        fetch('http://localhost:5000/api/create-comment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            accountName: "alice",
+            body: body,
+            postId: "0"
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Comment created:', data);
+            window.location.reload(); 
+          })
+          .catch(error => {
+            console.error('Error creating comment:', error);
+          });
+      };      
+
+
+      function createLike(postId) {
+        fetch('http://localhost:5000/api/create-like', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            accountName: 'alice',
+            postId: postId
+          }),
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log('Like created:', data);
+          })
+          .catch(error => {
+            console.error('Error creating like:', error);
+          });
+      }
+
+      function listPostLikes(postId) {
+        return fetch('http://localhost:5000/api/list-post-likes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            postId: postId
+          }),
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log('Likes list:', data);
+            return data;
+          })
+          .catch(error => {
+            console.error('Error listing likes:', error);
+          });
+      }
+
+      function deleteLike(postId) {
+        fetch('http://localhost:5000/api/delete-like', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            accountName: 'alice',
+            postId: postId
+          }),
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log('Like deleted:', data);
+          })
+          .catch(error => {
+            console.error('Error deleting like:', error);
+          });
+      }      
+      
 
     /*Like*/
 
@@ -175,18 +248,6 @@ const Feed = () => {
             setLikesCount(likesCount + 1);
         }
         setLiked(!liked);
-    };
-
-    const [likedComment, setLikedComment] = useState(false);
-    const [likesCountComment, setLikesCountComment] = useState(0);
-
-    const toggleLikeComment = () => {
-        if (likedComment) {
-            setLikesCountComment(likesCountComment - 1);
-        } else {
-            setLikesCountComment(likesCountComment + 1);
-        }
-        setLikedComment(!likedComment);
     };
 
 
@@ -225,28 +286,11 @@ const Feed = () => {
                                         <div className='row center'>
                                             <div className='comment'>
                                                 <div className='comment-icone'>
-                                                    <img src={comment.foto} className='comment-image'></img>
+                                                    <img src={"https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/06/messi-argentina-guatemala-e1718811255101.jpg?w=1200&h=1200&crop=1"} className='comment-image'></img>
                                                 </div>
                                                 <div className='comment-content'>
                                                     <h3 className='title'>{comment.author}</h3>
-                                                    <p className='text'>{comment.text}</p>
-                                                    <div className='comment-content-likes'>
-                                                        <div className='comment-count-column'>
-                                                            <p className='comment-count'>{comment.likes + likesCountComment} likes</p>
-                                                        </div>
-                                                        <div className='comment-count-column'>
-                                                            <p className='comment-count'>{comment.time}</p>
-                                                        </div>
-                                                        <div className='comment-count-column'>
-                                                            <p className='comment-count'>Awnser</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className='comment-like'>
-                                                    <button
-                                                        onClick={toggleLikeComment} className='likeButtonComment'>
-                                                        {likedComment ? <FaHeart color="red" className='like-iconButton' /> : <FaRegHeart size={32} color="white" className='like-iconButton' />}
-                                                    </button>
+                                                    <h5 className='text'>{comment.content}</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -261,7 +305,7 @@ const Feed = () => {
                                     </div>
                                     <div className='post-newComment'>
                                         <div className='div-input'>
-                                            <input className='input' type="text" id="nome" name="nome" placeholder='Make a comment'></input>
+                                            <input className='input' type="text" id="nome" name="nome" placeholder='Make a comment' value={comment} onChange={(e) => setComment(e.target.value)} onKeyDown={handleKeyDown}></input>
                                         </div>
                                     </div>
                                     <div className='post-send' >
@@ -269,7 +313,8 @@ const Feed = () => {
                                             animate={{ opacity: 1, y: 0 }}
                                             whileHover={{ scale: 1.05 }} // Azul mais escuro no hover
                                             whileTap={{ scale: 0.95 }}
-                                            transition={{ duration: 0.3 }}>
+                                            transition={{ duration: 0.3 }}
+                                            onClick={handleSend}>
                                             <FaCircleChevronRight className='send' />
                                         </motion.div>
                                     </div>
@@ -288,7 +333,7 @@ const Feed = () => {
             <div className='section-total'>
                 <div className='section-perfil'>
                     {perfis.map((perfil) => (
-                        <Link to="/market" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link to="/perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <motion.div className='perfil' initial={{ opacity: 0, y: 50, scale: 0.95 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 whileHover={{ scale: 1.03, boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.15)" }}
@@ -317,17 +362,22 @@ const Feed = () => {
                     <div className='ask'>
                         <Link to="/perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <div className='div-image-ask'>
-                                <img src={foto} className='foto'></img>
+                                <img src={perfis[0].foto} className='foto'></img>
                             </div>
                         </Link>
                         <div className='div-ask2'>
                             <div className='container-input-feed'>
-                                <input className='input-feed' type="text" id="nome" name="nome" placeholder='Write something...'></input>
+                                <input className='input-feed' type="text" id="nome" name="nome" placeholder='Write something...'  onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                const title = e.target.value;
+                                createPost(title);
+                                }
+                            }}></input>
                             </div>
                         </div>
                     </div>
                     <div className='section-cards'>
-                        {posts.map((post) => (
+                        {posts.slice().reverse().map((post) => (
                             <motion.div layout
                                 initial={{ opacity: 0, y: -100 }}   // Começa invisível e acima
                                 animate={{ opacity: 1, y: 0 }}     // Anima para visível e posição normal
@@ -348,7 +398,7 @@ const Feed = () => {
                                     <p className='card-text'>{post.content}</p>
                                 </div>
                                 <div className='div-imageCard' >
-                                    <img className='image-card' src={post.image} onClick={() => abrirImagem(post.image, post.foto, post.author, post.loc, post.content)} ></img>
+                                    <img className='image-card' src={post.image}></img>
                                 </div>
                                 <div className='section-like'>
                                     <div className='like-column'>
@@ -358,7 +408,7 @@ const Feed = () => {
                                         </button>
                                     </div>
                                     <div className='like-column'>
-                                        <button className='like' onClick={() => abrirImagem(post.image, post.foto, post.author, post.loc, post.content)}>
+                                        <button className='like' onClick={() => abrirImagem(post.image, post.foto, post.author, post.loc, post.content, post.id)}>
                                             <FaRegComment color='white' className='comment-icon' />
                                         </button>
                                     </div>
@@ -376,25 +426,21 @@ const Feed = () => {
                 </div>
                 <div className='section-tops'>
                     <div className='card-trending'>
-                        <h3 className='trending-title'>Trending Topics</h3>
+                        <h3 className='trending-title'>Chats</h3>
                         <Link to="/message" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <div className='topico'>
-                                <a><h4 className='trending-topics'>Tópico 1</h4></a>
-                                <p className='trending-text'>2050 readers</p>
+                                <a><h4 className='trending-topics'>Barcelona</h4></a>
+                                <p className='trending-text'>2 messages</p>
                             </div>
                         </Link>
-                        <div className='topico'>
-                            <a><h4 className='trending-topics'>Tópico 1</h4></a>
-                            <p className='trending-text'>2050 readers</p>
-                        </div>
-                        <div className='topico'>
-                            <a><h4 className='trending-topics'>Tópico 1</h4></a>
-                            <p className='trending-text'>2050 readers</p>
-                        </div>
-                        <div className='topico'>
-                            <a><h4 className='trending-topics'>Tópico 1</h4></a>
-                            <p className='trending-text'>2050 readers</p>
-                        </div>
+                    </div>
+                    <div className='card-trending'>
+                        <h3 className='trending-title'>Transfers</h3>
+                        <Link to="/market" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <div className='topico'>
+                                <a><h4 className='trending-topics'>Newests</h4></a>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

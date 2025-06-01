@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import icone from '../imgs/icones.png'
-import { Keplr } from '@keplr-wallet/types';
 import { useNavigate } from 'react-router-dom';
-import { SecretNetworkClient } from "secretjs";
 import './css/login.css';
 import './css/index.css';
 
@@ -27,6 +25,7 @@ const Login = () => {
             const accounts = await offlineSigner.getAccounts();
             setAddress(accounts[0].address);
             console.log("Connected Keplr address:", accounts[0].address);
+            localStorage.setItem('isLoggedIn', 'true');
             navigate('/feed');
         } catch (err) {
             console.error("Failed to connect to Keplr:", err);
@@ -43,6 +42,7 @@ const Login = () => {
 
           if (accounts.length > 0) {
             setAddress(accounts[0].address);
+            localStorage.setItem('isLoggedIn', 'true');
             navigate('/feed');
           }
         } catch (err) {
@@ -67,15 +67,22 @@ const Login = () => {
         const hashArray = Array.from(new Uint8Array(hashBuffer));
         const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-        console.log("Hash:", hashHex);
-
         try {
-            const response = await fetch("http://localhost:5000/api/list-wallets", {
+            const response = await fetch("http://localhost:5000/api/list-accounts", {
             method: "GET"
         });
 
             const result = await response.json();
-            console.log("API:", result);
+            const accounts = result.accounts;
+            const exists = Array.isArray(accounts) && accounts.some(account => account.hash === hashHex);
+
+            if (exists) {
+                localStorage.setItem('isLoggedIn', 'true');
+                navigate("/feed");
+            } else {
+                alert("This account does not exist");
+            }
+
         } catch (error) {
             console.error("Error sending to API:", error);
         }

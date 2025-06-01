@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import icone from '../imgs/icones.png'
-import banner from '../imgs/post/campnou.jpg'
-import foto from '../imgs/avatar/Frenkie.jpg';
-import postImage from '../imgs/post/fdj.jpg'
 import './css/market.css';
 import './css/index.css';
-import flecha from '../imgs/market/flecha.png'
+import flecha from '../imgs/market/flecha.png';
+import { useNavigate } from 'react-router-dom';
 
 const perfis = [
     {
@@ -44,6 +42,14 @@ const transfers = [
 
 const Market = () => {
     const [imagemModal, setImagemModal] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+            const isLoggedIn = localStorage.getItem('isLoggedIn')
+            if (isLoggedIn !== 'true') {
+                navigate("/");
+            }
+          }, []);
 
     const abrirImagem = (src) => {
         setImagemModal(src);
@@ -64,6 +70,7 @@ const Market = () => {
             <div className='section-total-market'>
                 <div className='section-perfil-market'>
                     {perfis.map((perfil) => (
+                        <Link to="/perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
                         <div className='perfil-market' key={perfil.id}>
                             <div className='perfil-metade-banner-market'>
                                 <img className='banner-market' src={perfil.banner} />
@@ -81,6 +88,7 @@ const Market = () => {
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     ))}
                 </div>
                 <div className='section-market'>
@@ -135,25 +143,23 @@ const Market = () => {
                     </div>
                 </div>
                 <div className='section-tops-market'>
-                    <div className='card-trending-market'>
-                        <h3 className='trending-title-market'>Trending Topics</h3>
-                        <div className='topico-market'>
-                            <a><h4 className='trending-topics-market'>Tópico 1</h4></a>
-                            <p className='trending-text-market'>2050 readers</p>
-                        </div>
-                        <div className='topico-market'>
-                            <a><h4 className='trending-topics-market'>Tópico 1</h4></a>
-                            <p className='trending-text-market'>2050 readers</p>
-                        </div>
-                        <div className='topico-market'>
-                            <a><h4 className='trending-topics-market'>Tópico 1</h4></a>
-                            <p className='trending-text-market'>2050 readers</p>
-                        </div>
-                        <div className='topico-market'>
-                            <a><h4 className='trending-topics'>Tópico 1</h4></a>
-                            <p className='trending-text'>2050 readers</p>
-                        </div>
-                    </div>
+                    <div className='card-trending'>
+                                            <h3 className='trending-title'>Chats</h3>
+                                            <Link to="/message" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                <div className='topico'>
+                                                    <a><h4 className='trending-topics'>Barcelona</h4></a>
+                                                    <p className='trending-text'>2 messages</p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                        <div className='card-trending'>
+                                            <h3 className='trending-title'>Feed</h3>
+                                            <Link to="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                <div className='topico'>
+                                                    <a><h4 className='trending-topics'>Newests</h4></a>
+                                                </div>
+                                            </Link>
+                                        </div>
                 </div>
             </div>
         </div>

@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { color, AnimatePresence, motion } from 'framer-motion';
-import { FaHeart, FaRegHeart, FaRegComment } from 'react-icons/fa';
 import { FaCircleChevronRight, FaCircleInfo, FaCheck } from "react-icons/fa6";
 import { IoIosCall, IoMdVideocam, IoMdSend } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 import { LiaPaperclipSolid } from "react-icons/lia";
+import pdf from '../imgs/chat/Contrato_Ronaldo_Barcelona.pdf';
 import icone from '../imgs/icones.png'
-import banner from '../imgs/post/campnou.jpg'
-import foto from '../imgs/avatar/Frenkie.jpg';
-import postImage from '../imgs/post/fdj.jpg'
 import './css/message.css';
 import './css/index.css';
 
@@ -25,27 +23,28 @@ const perfis = [
 const initialMessages = [
     {
         id: 1,
-        name: 'Olá, meu nome é Ronaldossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+        name: 'Olá, meu nome é Ronaldo',
         class: 'message-me',
-        image: 'https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/01/lamine-yamal-barcelona.jpg-e1736348344954.jpg?w=1200&h=1200&crop=1'
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqnuzMk0HKVhQosaxe55zciSEN3HCXF1tO-PfNCsP2b3rkjewQqdSPsyzbF7A8QMDmBc&usqp=CAU'
     },
     {
         id: 2,
-        name: 'Olá, eu sou representante da Vivo',
+        name: 'Olá, eu sou representante do Barcelona',
         class: 'message-re',
-        image: 'https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/01/lamine-yamal-barcelona.jpg-e1736348344954.jpg?w=1200&h=1200&crop=1'
+        image: 'https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/06/messi-argentina-guatemala-e1718811255101.jpg?w=1200&h=1200&crop=1'
     },
     {
         id: 3,
         name: 'Gostaria de fechar um contrato com você',
         class: 'message-re',
-        image: 'https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/01/lamine-yamal-barcelona.jpg-e1736348344954.jpg?w=1200&h=1200&crop=1'
+        image: 'https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/06/messi-argentina-guatemala-e1718811255101.jpg?w=1200&h=1200&crop=1'
 
     },
 ];
 const Message = () => {
     const [messages, setMessages] = useState(initialMessages);
     const [inputValue, setInputValue] = useState('');
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value); // atualiza o valor conforme o usuário digita
@@ -60,7 +59,7 @@ const Message = () => {
                 id: prev.length + 1,
                 name: inputValue,
                 class: 'message-me',
-                image: 'https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/01/lamine-yamal-barcelona.jpg-e1736348344954.jpg?w=1200&h=1200&crop=1', // coloque o padrão ou personalize
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqnuzMk0HKVhQosaxe55zciSEN3HCXF1tO-PfNCsP2b3rkjewQqdSPsyzbF7A8QMDmBc&usqp=CAU', // coloque o padrão ou personalize
             },
         ]);
         setInputValue(''); // limpa o input após enviar
@@ -70,6 +69,10 @@ const Message = () => {
 
     useEffect(() => {
         messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        const isLoggedIn = localStorage.getItem('isLoggedIn')
+            if (isLoggedIn !== 'true') {
+                navigate("/");
+            }
     }, [messages]);
 
     return (
@@ -82,6 +85,7 @@ const Message = () => {
             <div className='section-total-message'>
                 <div className='section-perfil-message'>
                     {perfis.map((perfil) => (
+                        <Link to="/perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
                         <div className='perfil-message' key={perfil.id}>
                             <div className='perfil-metade-banner-message'>
                                 <img className='banner-message' src={perfil.banner} />
@@ -99,6 +103,7 @@ const Message = () => {
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     ))}
                 </div>
                 <div className='section-message'>
@@ -110,29 +115,14 @@ const Message = () => {
                                 transition={{ duration: 1 }} className='message'>
                                 <div className='message-perfil'>
                                     <div className='div-message-image'>
-                                        <img className='imageUser' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqnuzMk0HKVhQosaxe55zciSEN3HCXF1tO-PfNCsP2b3rkjewQqdSPsyzbF7A8QMDmBc&usqp=CAU' />
+                                        <Link to="/perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                            <img className='imageUser' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqnuzMk0HKVhQosaxe55zciSEN3HCXF1tO-PfNCsP2b3rkjewQqdSPsyzbF7A8QMDmBc&usqp=CAU' />
+                                        </Link>
                                     </div>
                                     <div className='div-user-perfil'>
                                         <h3 className='title'>Frenkie De Jong</h3>
                                         <p className='code'>#123132</p>
 
-                                    </div>
-                                    <div className='div-user-buttons'>
-                                        <div className='column'>
-                                            <div className='div-button'>
-                                                <IoIosCall className='button' />
-                                            </div>
-                                        </div>
-                                        <div className='column'>
-                                            <div className='div-button'>
-                                                <IoMdVideocam className='button' />
-                                            </div>
-                                        </div>
-                                        <div className='column info'>
-                                            <div className='div-button'>
-                                                <FaCircleInfo className='button' />
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div className='messages' ref={messageEndRef}>
@@ -171,9 +161,6 @@ const Message = () => {
                                             <div className='message-column-button'>
                                                 <IoMdSend onClick={handleSendMessage} className='button' />
                                             </div>
-                                            <div className='message-column-button'>
-                                                <LiaPaperclipSolid className='button' />
-                                            </div>
                                         </div>
                                     </div>
 
@@ -189,12 +176,10 @@ const Message = () => {
                             <h1 className='contract-title'>Contract</h1>
                         </div>
                         <div className='contract-div'>
-                            <p className='contract-text'>O presente contrato tem por objetivo formalizar a parceria entre o contratado e a contratante, para atuação como embaixador da marca Vivo nas campanhas de comunicação e marketing digital da empresa, com foco em alcance internacional e reforço de imagem institucional.</p>
-                        </div>
-                        <div className='contract-div'>
                             <div className='column'>
-                                <button className='contract-button btn-blue'>Create Contract</button>
-                                <button className='contract-button none-margin'>View Contract</button>
+                                <a href={pdf} target="_blank" rel="noopener noreferrer">
+                                    <button className="contract-button none-margin">View Contract</button>
+                                </a>
                             </div>
                         </div>
                     </div>

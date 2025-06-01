@@ -1,18 +1,18 @@
 {
-  "name": "sportiverse-goaltrick",
+  "name": "goaltrick-dapp",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-     "start": "npm run build-client && node index.js",
-    "dev": "npm run dev-client && nodemon index.js",
+    "start": "npm run build-client && node index.js",
+    "dev": "npm run dev-client & nodemon index.js",
     "build-client": "npm run clean && parcel build client/src/index.html --out-dir client/dist",
     "dev-client": "npm run clean && parcel client/src/index.html --out-dir client/dist",
-    "clean": "rmdir /s /q .cache client\\dist"
+    "clean": "rm -rf .cache client/dist"
   },
   "keywords": [],
   "author": "Sportiverse Labs",
   "license": "MIT",
-  "description": "Official site of Sportiverse goaltrick",
+  "description": "Goaltrick is the first dApp of Sportiverse and a powerful demonstration of what the ecosystem can achieve. It is a decentralized football social network that connects everyone, democratizing and expanding access to the real-world football scene through the power of Web3.",
   "dependencies": {
     "@keplr-wallet/types": "^0.12.235",
     "express": "^5.1.0",

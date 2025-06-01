@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import icone from '../imgs/icones.png'
-import banner from '../imgs/post/campnou.jpg'
-import foto from '../imgs/avatar/Frenkie.jpg';
-import postImage from '../imgs/post/fdj.jpg'
-import grafico from '../imgs/perfil/grafico.png'
+import icone from '../imgs/icones.png';
+import grafico from '../imgs/perfil/grafico.png';
+import { useNavigate } from 'react-router-dom';
 import './css/perfil.css';
 import './css/index.css';
 
@@ -28,6 +26,15 @@ const perfis = [
 
 const Perfil = () => {
 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn')
+        if (isLoggedIn !== 'true') {
+            navigate("/");
+        }
+      }, []);
+
     return (
               <div className='container-perfil'>
             <div className='navbar'>
@@ -46,7 +53,6 @@ const Perfil = () => {
                                     transition={{ duration: 1 }} className='perfil-p'>
                                     <div className='perfil-metade-banner-p'>
                                         <img className='banner-p' src={perfil.banner}></img>
-
                                     </div>
                                     <div className='perfil-metade-p'>
                                         <div className='perfil-section-foto-p'>
@@ -101,42 +107,22 @@ const Perfil = () => {
                 </div>
                 <div className='section-tops-p'>
                     <div className='card-trending-p'>
-                        <h3 className='trending-title-p'>Trending Topics</h3>
-                        <Link to="/message" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <div className='topico'>
-                                <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                                <p className='trending-text-p'>2050 readers</p>
-                            </div>
-                        </Link>
-                        <div className='topico-p'>
-                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                            <p className='trending-text-p'>2050 readers</p>
-                        </div>
-                        <div className='topico-p'>
-                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                            <p className='trending-text-p'>2050 readers</p>
-                        </div>
-                        <div className='topico-p'>
-                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                            <p className='trending-text-p'>2050 readers</p>
-                        </div>
-                        <div className='topico-p'>
-                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                            <p className='trending-text-p'>2050 readers</p>
-                        </div>
-                        <div className='topico-p'>
-                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                            <p className='trending-text-p'>2050 readers</p>
-                        </div>
-                        <div className='topico-p'>
-                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                            <p className='trending-text-p'>2050 readers</p>
-                        </div>
-                        <div className='topico-p'>
-                            <a><h4 className='trending-topics-p'>Tópico 1</h4></a>
-                            <p className='trending-text-p'>2050 readers</p>
-                        </div>
-                    </div>
+                                                                <h3 className='trending-title'>Chats</h3>
+                                                                <Link to="/message" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                                    <div className='topico'>
+                                                                        <a><h4 className='trending-topics'>Barcelona</h4></a>
+                                                                        <p className='trending-text'>2 messages</p>
+                                                                    </div>
+                                                                </Link>
+                                                            </div>
+                                                            <div className='card-trending-p'>
+                                                                <h3 className='trending-title'>Feed</h3>
+                                                                <Link to="/feed" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                                    <div className='topico'>
+                                                                        <a><h4 className='trending-topics'>Newests</h4></a>
+                                                                    </div>
+                                                                </Link>
+                                                            </div>
                 </div>
             </div>
         </div>
